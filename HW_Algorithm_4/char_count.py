@@ -1,18 +1,23 @@
 # Write a Python function, which will count how many times a character (substring) is included in
 # a string. DON’T USE METHOD COUNT
 
-sentence = input("Enter sentence: ").lower()
-word = input("Enter the word to search: ").lower()
+string = input("Enter a string: ").lower()
+substring = input("Enter a substring: ").lower()
 
-def substring(stat):
-    occurence = 0
-    sent = stat.split()
-    for i in sent:
-        if i == word:
-            occurence += 1
-    return occurence
+def occurence_of_substing (given_string, given_substring):
+    counter = 0
+    if len(given_string) < len(given_substring):
+        return counter
 
-print(f'The word {word} has occured {substring(sentence)} times')
+    index = given_substring.find(given_substring)
+    while index > -1:
+        index = given_string.find(given_substring, index + 1)
+        counter += 1
+    return counter
+
+# print(occurence_of_substing("hello world of hero's", "he"))
+
+print(f'{substring}: is occured {occurence_of_substing(string, substring)} times')
 
 
 
